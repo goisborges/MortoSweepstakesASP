@@ -1,0 +1,42 @@
+﻿@model MortoSweepstakes.Models.Bet
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bet</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetTeam1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetTeam1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetTeam2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetTeam2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetPoints)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetPoints)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetDateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BetId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
