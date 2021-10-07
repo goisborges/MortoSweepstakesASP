@@ -87,3 +87,37 @@ body {
 .team-group{
     width: 70%;
 }
+.noteText{
+    font-size: 10px;
+}
+.tables-container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+}
+.group-card{
+    width: 20%;
+    margin: 2%;
+    padding: 10px;
+}
+.action-links{
+    font-size:12px;
+}
+.rules-background{
+    width: 100%;
+    border-radius: 8%;
+}
+.card{
+    margin: 10px;
+    padding: 5px;
+    width: 30%;
+}
+.cards-container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    width:100%;
+}
+.card-header{
+    margin-bottom: 10px;
+}

@@ -10,62 +10,63 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<p>The creation tool is for admin only. Easily modify team names and groups and the index page will dynamically show the groups and teams in separate tables for better visualization.</p>
+<p class="noteText">The creation tool is for admin only. Easily modify team names and groups and the index page will dynamically show the groups and teams in separate tables for better visualization.</p>
 
 
 <!--Display the teams by groups-->
 
 <!--Try to loop trough letters from A to H-->
-
-@for(int i = 0; i < 8; i++)
-{
-    //create an array of chars from A to H representing the groups
-    char[] aToZ = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
+<div class="tables-container">
+    @for(int i = 0; i < 8; i++)
+    {
+        //create an array of chars from A to H representing the groups
+        char[] aToZ = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
     
-    //while looping from 0 to 7, use i as index of array to retrieve a letter and populate the table
-    //Also, the same letter will be used to retrieve the teamGroup and sort the teams to the correct table
-    <table class="sortable">
-    <thead>
-        <tr>
-            <th>Group @aToZ[i]</th>
-        </tr>
-    </thead>
-     <tbody>
-    @foreach (var item in Model) {
-        if(item.TeamGroup == aToZ[i]){
+        //while looping from 0 to 7, use i as index of array to retrieve a letter and populate the table
+        //Also, the same letter will be used to retrieve the teamGroup and sort the teams to the correct table
+        <table class="table-striped group-card">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TeamName)
-                </td>
+                <th>Group @aToZ[i]</th>
             </tr>
+        </thead>
+         <tbody>
+        @foreach (var item in Model) {
+            if(item.TeamGroup == aToZ[i]){
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamName)
+                    </td>
 
-            //this column will retrieve dynamically the flag of the country 
-            <tr>
-                <td>
-                   
-                    
-                    <img src="/img/flags/@item.TeamName@ViewBag.flagPath" />
+                    <!-- this column shows the country flag image -->
+                    <td>
+                        
+                        <img width="25" src="/img/flags/@item.TeamName@ViewBag.flagPath" alt="country flag"/>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+
     
+            }
         }
+      </tbody>
+    </table>
     }
-  </tbody>
-</table>
-}
+</div>
 
 
 
-//another table that will show all teams and their groups
-<table class="table">
+<!--another table that will show all teams and their groups-->
+<table class="table sortable table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TeamName)
+                <a href="#">Teams</a>
+               @* @Html.DisplayNameFor(model => model.TeamName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeamGroup)
+                <a href="#">Groups</a>
+               @* @Html.DisplayNameFor(model => model.TeamGroup)*@
             </th>
             <th></th>
         </tr>
@@ -80,9 +81,9 @@
                 @Html.DisplayFor(modelItem => item.TeamGroup)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
+                <a class="action-links" asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
+                <a class="action-links" asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
+                <a class="action-links" asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
             </td>
         </tr>
 }
