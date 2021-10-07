@@ -4,6 +4,7 @@ Oficial Morto Sweepstakes Project repo
 by Marcos de Gois Borges.
 
 Project created for my ASP.NET classes at Georgian College, Barrie (ON), Canada. Computer Programming program.
+Thanks Professor Rich Freeman for sharing your knowledge in such a great manner.
 
 Using:  Microsoft Visual Studio 2019 Enterprise and Community Editions.
         Azure server and MSSQL database.
