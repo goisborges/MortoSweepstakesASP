@@ -22,6 +22,7 @@ namespace MortoSweepstakes.Controllers
         // GET: Matches
         public async Task<IActionResult> Index()
         {
+            var applicationDbContext = _context.Matches.Include(p => p.Bets).OrderBy(p => p.MatchDateTime);
             return View(await _context.Matches.ToListAsync());
         }
 

@@ -13,6 +13,8 @@ namespace MortoSweepstakes.Data
         public DbSet<Bet> Bets { get; set; }
         public DbSet<Match> Matches { get; set; }
 
+        public DbSet<Team> Teams { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
