@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<MortoSweepstakes.Models.Bet>
 
+
+
 @{
     ViewData["Title"] = "My Bets";
 }
@@ -7,8 +9,13 @@
 <h1>My Bets</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><i class="fas fa-plus-circle"></i>Create Bet</a>
+    
 </p>
+
+
+
+
 <table class="table sortable table-striped table-hover">
     <thead>
         <tr>

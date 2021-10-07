@@ -92,10 +92,11 @@ body {
 .noteText{
     font-size: 10px;
 }
-.tables-container{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
+.tables-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 .group-card{
     width: 20%;
@@ -103,7 +104,7 @@ body {
     padding: 10px;
 }
 .action-links{
-    font-size:12px;
+    font-size:16px;
 }
 .rules-background{
     width: 100%;

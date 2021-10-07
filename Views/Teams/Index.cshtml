@@ -8,7 +8,7 @@
 <p>Check all team participating and theirs groups.</p>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><i class="fas fa-plus-circle"></i> Create New</a>
 </p>
 <p class="noteText">The creation tool is for admin only. Easily modify team names and groups and the index page will dynamically show the groups and teams in separate tables for better visualization.</p>
 
@@ -81,9 +81,9 @@
                 @Html.DisplayFor(modelItem => item.TeamGroup)
             </td>
             <td>
-                <a class="action-links" asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
-                <a class="action-links" asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
-                <a class="action-links" asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
+                <a class="action-links" asp-action="Edit" asp-route-id="@item.TeamId"><i class="fas fa-edit" alt="edit"></i></a> |
+                <a class="action-links" asp-action="Details" asp-route-id="@item.TeamId"><i class="fas fa-info" alt="info"></i></a> |
+                <a class="action-links" asp-action="Delete" asp-route-id="@item.TeamId"><i class="fas fa-trash-alt" alt="delete"></i></a>
             </td>
         </tr>
 }
