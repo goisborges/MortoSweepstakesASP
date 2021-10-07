@@ -24,3 +24,8 @@ A Ranking View should show all the competitors (users) and their points, ordered
 
 I am also planning to build a user page where we can show all personal information and the user can edit this info. Maybe upload a poto.
 
+The project has, at least so far, 3 models: Teams, Matches and Bets. But we will need Users as well. The Team models are not yet related to the Matches model. I am planning to connect them so it's easier to create the Matches by selecting the team that will play by retrieving the names from the Teams table. So, adding just the 2 teamId as Foreign Keys on the Matches table. 
+
+Regarding the styling, I am using Bootstrap and my own classes as well.
+
+For JS, we have Sorttable.js external file added.
