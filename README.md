@@ -29,3 +29,5 @@ The project has, at least so far, 3 models: Teams, Matches and Bets. But we will
 Regarding the styling, I am using Bootstrap and my own classes as well.
 
 For JS, we have Sorttable.js external file added.
+
+To improve the appearance I implemented the use of Font Awesome Icons.
