@@ -56,36 +56,38 @@
 
 
 
-<!--another table that will show all teams and their groups-->
-<table class="table sortable table-striped">
-    <thead>
-        <tr>
-            <th>
-                <a href="#">Teams</a>
-               @* @Html.DisplayNameFor(model => model.TeamName)*@
-            </th>
-            <th>
-                <a href="#">Groups</a>
-               @* @Html.DisplayNameFor(model => model.TeamGroup)*@
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamGroup)
-            </td>
-            <td>
-                <a class="action-links" asp-action="Edit" asp-route-id="@item.TeamId"><i class="fas fa-edit" alt="edit"></i></a> |
-                <a class="action-links" asp-action="Details" asp-route-id="@item.TeamId"><i class="fas fa-info" alt="info"></i></a> |
-                <a class="action-links" asp-action="Delete" asp-route-id="@item.TeamId"><i class="fas fa-trash-alt" alt="delete"></i></a>
-            </td>
-        </tr>
+<!--another table that will show all teams and their groups, only for admin to access-->
+@if (User.IsInRole("Administrator")){
+    <table class="table sortable table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <a href="#">Teams</a>
+                   @* @Html.DisplayNameFor(model => model.TeamName)*@
+                </th>
+                <th>
+                    <a href="#">Groups</a>
+                   @* @Html.DisplayNameFor(model => model.TeamGroup)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamGroup)
+                </td>
+                <td>
+                    <a class="action-links" asp-action="Edit" asp-route-id="@item.TeamId"><i class="fas fa-edit" alt="edit"></i></a> |
+                    <a class="action-links" asp-action="Details" asp-route-id="@item.TeamId"><i class="fas fa-info" alt="info"></i></a> |
+                    <a class="action-links" asp-action="Delete" asp-route-id="@item.TeamId"><i class="fas fa-trash-alt" alt="delete"></i></a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>

@@ -69,6 +69,27 @@
     <!--Sorttable script - https://kryogenix.org/code/browser/sorttable/ -->
     <script src="~/js/sorttable.js"></script>
 
+    <!-- Facebook Login script-->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '563704964695393',
+                cookie: true,
+                xfbml: true,
+                version: 'Development'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

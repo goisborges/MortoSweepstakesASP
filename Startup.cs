@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MortoSweepstakes
 {
@@ -32,9 +33,29 @@ namespace MortoSweepstakes
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+                
             services.AddControllersWithViews();
+
+            //add Facebook authentication services
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                IConfigurationSection facebookAuth = Configuration.GetSection("Authentication:Facebook");
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
+            //add Google authentication
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                IConfigurationSection googleAuth = Configuration.GetSection("Authentication:Google");
+
+                //read Google API Key values from config section and set as options
+                options.ClientId = googleAuth["ClientId"];
+                options.ClientSecret = googleAuth["ClientSecret"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

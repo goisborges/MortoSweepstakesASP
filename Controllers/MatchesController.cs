@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
+    //Players will only have access to view the matches table
+    [Authorize(Roles = "Administrator")]
     public class MatchesController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,8 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
-    public class TeamsController : Controller
+    [Authorize(Roles = "Administrator, Player")] 
+    public class TeamsController : Controller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     {
         private readonly ApplicationDbContext _context;
 
@@ -21,7 +23,9 @@ namespace MortoSweepstakes.Controllers
             _context = context;
         }
 
+        
         // GET: Teams
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             ViewBag.flagPath = ".svg";
@@ -47,6 +51,7 @@ namespace MortoSweepstakes.Controllers
         }
 
         // GET: Teams/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
