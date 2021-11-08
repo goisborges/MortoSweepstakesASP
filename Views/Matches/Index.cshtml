@@ -57,7 +57,7 @@
 
            @* show the bet information where this matchId*@
             
-                @if (User.IsInRole("Administrator"))
+                @if (User.IsInRole("Administrator") || User.IsInRole("Player"))
                 {
                     <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchId">Edit</a> |
