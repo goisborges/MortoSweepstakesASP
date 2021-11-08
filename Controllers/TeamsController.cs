@@ -11,8 +11,8 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
-    [Authorize(Roles = "Administrator, Player")] 
-    public class TeamsController : Controller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    
+    public class TeamsController : Controller                                                                                                                                                                                                                                                                                                                             
     {
         private readonly ApplicationDbContext _context;
 

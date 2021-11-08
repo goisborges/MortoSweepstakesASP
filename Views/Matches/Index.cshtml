@@ -57,13 +57,17 @@
 
            @* show the bet information where this matchId*@
             
-
-            <td>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.MatchId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.MatchId">Delete</a>
             </td>
+            }
         </tr>
+        
+        
 }
     </tbody>
 </table>

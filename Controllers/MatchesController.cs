@@ -11,8 +11,7 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
-    //Players will only have access to view the matches table
-    [Authorize(Roles = "Administrator")]
+    
     public class MatchesController : Controller
     {
         private readonly ApplicationDbContext _context;
