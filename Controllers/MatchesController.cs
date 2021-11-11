@@ -29,7 +29,7 @@ namespace MortoSweepstakes.Controllers
             //get current date and time to check if game is happening now
             ViewBag.CurrentTime = DateTime.Now;
            
-
+            //retrieve data from the DB and order it
             var applicationDbContext = _context.Matches.Include(p => p.Teams).OrderBy(v => v.MatchDateTime).ToList();
             return View(applicationDbContext);
             //return View(await _context.Matches.ToListAsync());
