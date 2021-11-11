@@ -30,8 +30,9 @@ namespace MortoSweepstakes.Controllers
             ViewBag.CurrentTime = DateTime.Now;
            
 
-            var applicationDbContext = _context.Matches.Include(p => p.Teams).OrderBy(p => p.MatchDateTime);
-            return View(await _context.Matches.ToListAsync());
+            var applicationDbContext = _context.Matches.Include(p => p.Teams).OrderBy(v => v.MatchDateTime).ToList();
+            return View(applicationDbContext);
+            //return View(await _context.Matches.ToListAsync());
         }
 
         // GET: Matches/Details/5

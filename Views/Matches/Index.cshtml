@@ -47,7 +47,7 @@
 @foreach (var item in Model) {
         <tr class="matchesTable">
             <td>
-                @Html.DisplayFor(modelItem => item.MatchDateTime);
+                @Html.DisplayFor(modelItem => item.MatchDateTime)
                 
                  <!-- Check if game is happening today and display message if true -->
                  @if (DateTime.Compare(ViewBag.CurrentTime.Date, item.MatchDateTime.Date) == 0){
@@ -65,8 +65,8 @@
             <td class="score">
                 @Html.DisplayFor(modelItem => item.ScoreTeam1)
             </td>
-            <td style="text-align:center">
-                <h2>X</h2>
+            <td style="text-align:center; vertical-align:middle" >
+                <h4>X</h4>
             </td>
             <td class="score">
                 @Html.DisplayFor(modelItem => item.ScoreTeam2)
@@ -85,9 +85,10 @@
                 @if (User.IsInRole("Administrator") || User.IsInRole("Player"))
                 {
                     <td>
-                <a asp-action="Edit" asp-route-id="@item.MatchId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MatchId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MatchId">Delete</a>
+                        <a class="action-links" asp-action="Edit" asp-route-id="@item.MatchId"><i class="fas fa-edit" alt="edit"></i></a> |
+                    <a class="action-links" asp-action="Details" asp-route-id="@item.MatchId"><i class="fas fa-info" alt="info"></i></a> |
+                    <a class="action-links" asp-action="Delete" asp-route-id="@item.MatchId"><i class="fas fa-trash-alt" alt="delete"></i></a>
+                
             </td>
             }
         </tr>
