@@ -12,7 +12,12 @@
 </p>
 <table class="table sortable sortable table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="matchesTable">
+             <th>
+                <a href="#">Match Date and Time</a>
+               
+                @*@Html.DisplayNameFor(model => model.MatchDateTime)*@
+            </th>
             <th>
                 <a href="#">Team 1</a>
                 @*@Html.DisplayNameFor(model => model.Team1)*@
@@ -22,38 +27,57 @@
                 @*@Html.DisplayNameFor(model => model.ScoreTeam1)*@
             </th>
             <th>
-                <a href="#">Team 2</a>
-                @*@Html.DisplayNameFor(model => model.Team2)*@
-            </th>          
+                
+            </th>
             <th>
                 <a href="#">Score Team 2</a>
                 @*@Html.DisplayNameFor(model => model.ScoreTeam2)*@
             </th>
             <th>
-                <a href="#">Match Date</a>
-                @*@Html.DisplayNameFor(model => model.MatchDateTime)*@
-            </th>
+                <a href="#">Team 2</a>
+                @*@Html.DisplayNameFor(model => model.Team2)*@
+            </th>          
+            
+           
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr class="matchesTable">
             <td>
-                @Html.DisplayFor(modelItem => item.Team1)
+                @Html.DisplayFor(modelItem => item.MatchDateTime)
+                
+                
+                 @if (DateTime.Compare(ViewBag.CurrentTime.Date, item.MatchDateTime.Date) == 0){
+                    <p>TODAY's MATCH</p>
+                    
+                }
             </td>
             <td>
+                <img src="~/img/flags/@(item.Team1).svg" class="img-thumbnail" />
+                <br />
+                @Html.DisplayFor(modelItem => item.Team1) 
+                
+                
+            </td>
+            <td class="score">
                 @Html.DisplayFor(modelItem => item.ScoreTeam1)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team2)
-            </td>            
-            <td>
+            <td style="text-align:center">
+                <h2>X</h2>
+            </td>
+            <td class="score">
                 @Html.DisplayFor(modelItem => item.ScoreTeam2)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MatchDateTime)
-            </td>
+                <img src="~/img/flags/@(item.Team2).svg" class="img-thumbnail" />
+                 <br />
+                @Html.DisplayFor(modelItem => item.Team2)
+                
+            </td>            
+            
+            
 
            @* show the bet information where this matchId*@
             

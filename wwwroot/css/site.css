@@ -124,3 +124,14 @@ body {
 .card-header{
     margin-bottom: 10px;
 }
+.matchesTable td, th{
+    text-align:center;
+}
+.img-thumbnail{
+    width: 50px;
+    height: 35px;
+    margin: 5px;
+}
+.score{
+    font-size: 24px;
+}
