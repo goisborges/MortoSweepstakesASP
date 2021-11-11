@@ -15,12 +15,13 @@
         <tr class="matchesTable">
              <th>
                 <a href="#">Match Date and Time</a>
-               
+                
                 @*@Html.DisplayNameFor(model => model.MatchDateTime)*@
             </th>
             <th>
                 <a href="#">Team 1</a>
                 @*@Html.DisplayNameFor(model => model.Team1)*@
+
             </th>
             <th>
                 <a href="#">Score Team 1</a>
@@ -46,12 +47,12 @@
 @foreach (var item in Model) {
         <tr class="matchesTable">
             <td>
-                @Html.DisplayFor(modelItem => item.MatchDateTime)
+                @Html.DisplayFor(modelItem => item.MatchDateTime);
                 
-                
+                 <!-- Check if game is happening today and display message if true -->
                  @if (DateTime.Compare(ViewBag.CurrentTime.Date, item.MatchDateTime.Date) == 0){
-                    <p>TODAY's MATCH</p>
-                    
+                    <p class="today-match">TODAY's MATCH <i class="fas fa-futbol" alt="game on"></i>  </p>
+                         
                 }
             </td>
             <td>

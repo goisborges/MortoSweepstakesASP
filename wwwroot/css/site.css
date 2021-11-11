@@ -135,3 +135,6 @@ body {
 .score{
     font-size: 24px;
 }
+.today-match{
+    color:coral;
+}

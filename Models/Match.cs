@@ -23,5 +23,8 @@ namespace MortoSweepstakes.Models
         //Reference to child Bet model
         public List<Bet> Bets { get; set; }
 
+        //Reference to child Team model
+        public List<Team> Teams { get; set; }
+
     }
 }

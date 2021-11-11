@@ -24,11 +24,13 @@ namespace MortoSweepstakes.Controllers
         // GET: Matches
         public async Task<IActionResult> Index()
         {
+            
+
             //get current date and time to check if game is happening now
             ViewBag.CurrentTime = DateTime.Now;
            
 
-            var applicationDbContext = _context.Matches.Include(p => p.Bets).OrderBy(p => p.MatchDateTime);
+            var applicationDbContext = _context.Matches.Include(p => p.Teams).OrderBy(p => p.MatchDateTime);
             return View(await _context.Matches.ToListAsync());
         }
 
@@ -53,6 +55,8 @@ namespace MortoSweepstakes.Controllers
         // GET: Matches/Create
         public IActionResult Create()
         {
+            //pass team names to combobox
+            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamName");
             return View();
         }
 
@@ -61,10 +65,18 @@ namespace MortoSweepstakes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MatchId,Team1,Team2,ScoreTeam1,ScoreTeam2,MatchDateTime")] Match match)
+        public async Task<IActionResult> Create([Bind("MatchId,ScoreTeam1,ScoreTeam2,MatchDateTime")] Match match, int team1, int team2)
         {
             if (ModelState.IsValid)
             {
+                //get team1 id posted and retrieve the correspondent team name from the database
+                var team1Name = _context.Teams.Find(team1);
+                match.Team1 = team1Name.TeamName;
+
+                //get team2 id posted and retrieve the correspondent team name from the database
+                var team2Name = _context.Teams.Find(team2);
+                match.Team2 = team2Name.TeamName;
+
                 _context.Add(match);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

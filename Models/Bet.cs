@@ -34,5 +34,7 @@ namespace MortoSweepstakes.Models
 
         //User Id needs to be a Foreign Key here
         public string UserId { get; set; }
+
+        
     }
 }
