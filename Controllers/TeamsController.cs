@@ -11,7 +11,7 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
-    
+    [Authorize]
     public class TeamsController : Controller                                                                                                                                                                                                                                                                                                                             
     {
         private readonly ApplicationDbContext _context;

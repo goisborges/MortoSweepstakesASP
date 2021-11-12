@@ -11,7 +11,7 @@ using MortoSweepstakes.Models;
 
 namespace MortoSweepstakes.Controllers
 {
-    
+    [Authorize]
     public class MatchesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,6 +21,7 @@ namespace MortoSweepstakes.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Matches
         public async Task<IActionResult> Index()
         {
