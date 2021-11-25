@@ -29,7 +29,7 @@ namespace MortoSweepstakes.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.flagPath = ".svg";
-            return View(await _context.Teams.ToListAsync());
+            return View("Index", await _context.Teams.ToListAsync());
         }
 
         // GET: Teams/Details/5

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortoSweepstakes", "MortoSweepstakes.csproj", "{A2484992-0F5B-49CA-8177-4337BE80A162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MortoSweepstakesTests", "MortoSweepstakesTests\MortoSweepstakesTests.csproj", "{DA87B87B-5D7B-4596-A0A1-55C47D271412}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MortoSweepstakesTests", "..\MortoSweepstakesTests\MortoSweepstakesTests.csproj", "{CFFE248E-0AC8-4098-B27F-43FCAE649B60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A2484992-0F5B-49CA-8177-4337BE80A162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2484992-0F5B-49CA-8177-4337BE80A162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2484992-0F5B-49CA-8177-4337BE80A162}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA87B87B-5D7B-4596-A0A1-55C47D271412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA87B87B-5D7B-4596-A0A1-55C47D271412}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA87B87B-5D7B-4596-A0A1-55C47D271412}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA87B87B-5D7B-4596-A0A1-55C47D271412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFFE248E-0AC8-4098-B27F-43FCAE649B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFFE248E-0AC8-4098-B27F-43FCAE649B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFFE248E-0AC8-4098-B27F-43FCAE649B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFFE248E-0AC8-4098-B27F-43FCAE649B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
