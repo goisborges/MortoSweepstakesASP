@@ -37,17 +37,17 @@ namespace MortoSweepstakes.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var team = await _context.Teams
                 .FirstOrDefaultAsync(m => m.TeamId == id);
             if (team == null)
             {
-                return NotFound();
+                return View("404");
             }
 
-            return View(team);
+            return View("Details", team);
         }
 
         // GET: Teams/Create
